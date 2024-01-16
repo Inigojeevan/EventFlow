@@ -6,11 +6,11 @@ type Event = {
   title: string;
   genre: string;
   image: string;
-}
+};
 
 type EventPageProps = {
   event: Event;
-}
+};
 
 const EventPage = ({ event }: EventPageProps) => {
   return (
@@ -23,7 +23,7 @@ const EventPage = ({ event }: EventPageProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async(context) => {
+export const getServerSideProps: GetServerSideProps = async context => {
   if (!context.params) {
     return {
       notFound: true,

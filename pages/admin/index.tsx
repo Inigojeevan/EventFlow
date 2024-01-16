@@ -9,7 +9,7 @@ const AdminPage = () => {
         </DashboardLayout>
       </div>
     </div>
-  )
+  );
 };
 
 export default AdminPage;
