@@ -1,84 +1,87 @@
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
 import Link from "next/link";
 
 const NavMenu = () => {
   const session = false;
 
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem className="w-32">
-          <NavigationMenuTrigger className="w-32 bg-violet-900 border-2 border-fuchsia-600 text-white">
-            Events
-          </NavigationMenuTrigger>
-          <NavigationMenuContent className="w-full">
+    <Menubar className="w-full h-10 bg-transparent border-none">
+      <MenubarMenu>
+        <MenubarTrigger className="w-20 h-10 rounded-xl p-1 bg-violet-900 border-fuchsia-600 border-2 text-white text-base flex justify-center">Events</MenubarTrigger>
+        <MenubarContent>
+          <MenubarItem>
             <div className="w-32">
               <Link
                 href="/events"
-                className="text-base font-semibold w-32 h-12 p-1 flex justify-center items-center"
+                className="text-base font-semibold w-24 h-12 p-1 flex justify-center items-center"
               >
                 View Events
               </Link>
             </div>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="w-32 bg-violet-900 border-2 border-fuchsia-600 text-white">
-            Host
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <div className="w-32">
-              <Link
-                href="/host-event"
-                className="text-base font-semibold w-32 h-12 p-1 flex justify-center items-center"
-              >
-                Host Event
-              </Link>
-            </div>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
+          </MenubarItem>
+        </MenubarContent>
+        <MenubarMenu>
+          <MenubarTrigger className="w-20 h-10 rounded-xl p-1 bg-violet-900 border-fuchsia-600 border-2 text-white text-base flex justify-center">Hosts</MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem>
+              <div className="w-32">
+                <Link
+                  href="/host-event"
+                  className="text-base font-semibold w-24 h-12 p-1 flex justify-center items-center"
+                >
+                  Host Event
+                </Link>
+              </div>
+            </MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
         {session ? (
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="w-32 bg-violet-900 border-2 border-fuchsia-600 text-white">
-              Contact
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <div className="w-32">
-                <Link
-                  href="/contact"
-                  className="text-base font-semibold w-32 h-12 p-1 flex justify-center items-center"
-                >
-                  Contact support
-                </Link>
-              </div>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
+          <>
+            <MenubarMenu>
+              <MenubarTrigger className="w-20 h-10 rounded-xl p-1 bg-violet-900 border-fuchsia-600 border-2 text-white text-base flex justify-center">Contact</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>
+                  <div className="w-32">
+                    <Link
+                      href="/contact"
+                      className="text-base font-semibold w-24 h-12 p-1 flex justify-center items-center"
+                    >
+                      Contact Support
+                    </Link>
+                  </div>
+                </MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </>
         ) : (
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="w-32 bg-violet-900 border-2 border-fuchsia-600 text-white">
-              Admin
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <div className="w-32">
-                <Link
-                  href="/admin"
-                  className="text-base font-semibold w-32 h-12 p-1 flex justify-center items-center"
-                >
-                  Admin
-                </Link>
-              </div>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
+          <>
+            <MenubarMenu>
+              <MenubarTrigger className="w-20 h-10 rounded-xl p-1 bg-violet-900 border-fuchsia-600 border-2 text-white text-base flex justify-center">Admin</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>
+                  <div className="w-32">
+                    <Link
+                      href="/admin"
+                      className="text-base font-semibold w-24 h-12 p-1 flex justify-center items-center"
+                    >
+                      Admin
+                    </Link>
+                  </div>
+                </MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </>
         )}
-      </NavigationMenuList>
-    </NavigationMenu>
+      </MenubarMenu>
+    </Menubar>
   );
 };
 

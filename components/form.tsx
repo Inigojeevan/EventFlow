@@ -2,13 +2,7 @@ import { useRef, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  SelectValue,
-  SelectTrigger,
-  SelectItem,
-  SelectContent,
-  Select,
-} from "@/components/ui/select";
+import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { MinusIcon, PlusIcon } from "lucide-react";
 import { Card } from "./ui/card";
@@ -50,7 +44,7 @@ export function EventForm() {
   ]);
 
   return (
-    <div key="1" className="mx-auto max-w-[500px] space-y-6 pt-24">
+    <div key="1" className="mx-auto max-w-[500px] space-y-6 pt-24 ">
       {cardOpen ? (
         <div className="flex flex-col justify-center items-center">
           <div className="flex p-3">
@@ -62,6 +56,7 @@ export function EventForm() {
                 <div className="space-y-2">
                   <Label htmlFor="ticket-name">Ticket Name</Label>
                   <Input
+                    className="text-black"
                     ref={ticketNameRef}
                     id="ticket-name"
                     placeholder="Ticket Name"
@@ -74,6 +69,7 @@ export function EventForm() {
                     <Label htmlFor="ticket-price">Ticket Price</Label>
                     <Input
                       id="ticket-price"
+                      className="text-black"
                       min={0}
                       defaultValue={0}
                       ref={ticketPriceRef}
@@ -86,6 +82,7 @@ export function EventForm() {
                     <Label htmlFor="ticket-quantity">Ticket Quantity</Label>
                     <Input
                       id="ticket-quantity"
+                      className="text-black"
                       min={1}
                       defaultValue={1}
                       ref={ticketQuantityRef}
@@ -98,10 +95,9 @@ export function EventForm() {
                 <div>
                   <div className="space-y-2">
                     <Label htmlFor="ticket-perks">Ticket Perks</Label>
-
                     <Textarea
-                      className="min-w-[100px]"
                       id="ticket-perks"
+                      className="min-w-[100px] text-black"
                       ref={ticketPerksRef}
                       placeholder="Ticket Perks"
                       required
@@ -122,23 +118,21 @@ export function EventForm() {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col min-w-[450px]">
+        <div className="flex flex-col">
           <div className="space-y-2 text-center">
             <h1 className="text-3xl font-bold">Host an Event</h1>
-            <p className="text-gray-500 dark:text-gray-400">
-              Fill out the form below to host your event
-            </p>
+            <p className="text-gray-500 dark:text-gray-400">Fill out the form below to host your event</p>
           </div>
           <div>
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="event-name">Event Name</Label>
-                <Input id="event-name" placeholder="Event Name" required />
+                <Input id="event-name" placeholder="Event Name" className="text-black" required />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="event-description">Event Description</Label>
                 <Textarea
-                  className="min-h-[100px]"
+                  className="min-h-[100px] text-black"
                   id="event-description"
                   placeholder="Event Description"
                   required
@@ -149,6 +143,7 @@ export function EventForm() {
                   <Label htmlFor="event-date">Event Date</Label>
                   <Input
                     id="event-date"
+                    className="text-black"
                     required
                     type="date"
                     defaultValue={new Date().toISOString().slice(0, 10)}
@@ -156,36 +151,28 @@ export function EventForm() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="event-time">Event Time</Label>
-                  <Input id="event-time" required type="time" />
+                  <Input id="event-time" className="text-black" required type="time" />
                 </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="event-location">Event Location</Label>
-                <Input
-                  id="event-location"
-                  placeholder="Event Location"
-                  required
-                />
+                <Input id="event-location" className="text-black" placeholder="Event Location" required />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="ticket-type">Ticket Type</Label>
                 <div className="flex items-center space-x-2">
                   {/* @ts-ignore */}
-                  <Select id="ticket-type">
-                    <SelectTrigger>
+                  <Select id="ticket-type" className="text-black">
+                    <SelectTrigger className="text-black">
                       <SelectValue placeholder="Select" />
                     </SelectTrigger>
                     <SelectContent position="popper">
                       {ticketTypes.map((ticketType, index) => (
                         <div className="flex items-end" key={index}>
-                          <SelectItem value={ticketType.ticketName}>
-                            {ticketType.ticketName}
-                          </SelectItem>
+                          <SelectItem value={ticketType.ticketName}>{ticketType.ticketName}</SelectItem>
                           <Button
                             onClick={() => {
-                              const newTicketTypes = ticketTypes.filter(
-                                (_, i) => i !== index
-                              );
+                              const newTicketTypes = ticketTypes.filter((_, i) => i !== index);
                               setTicketTypes(newTicketTypes);
                             }}
                           >
@@ -195,7 +182,7 @@ export function EventForm() {
                       ))}
                     </SelectContent>
                   </Select>
-                  <Button size="icon" variant="outline" onClick={toggleCard}>
+                  <Button size="icon" className="text-black" variant="outline" onClick={toggleCard}>
                     <PlusIcon />
                     <span className="sr-only">Add ticket type</span>
                   </Button>

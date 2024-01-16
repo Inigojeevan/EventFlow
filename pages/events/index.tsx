@@ -6,7 +6,7 @@ const EventsPage = () => {
       id: 1,
       title: "Event 1",
       genre: "Comedy",
-      image: "/images/comedy.jpg",
+      image: "/images/comedy.jpg", //this would be changed by the host while adding events
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ const EventsPage = () => {
   ];
 
   return (
-    <div className="flex justify-center bg-violet-950">
+    <div className="flex justify-center">
       <div className="mt-20 p-8 flex items-center flex-col">
         <h1 className="text-white">All Events</h1>
         <div className="mt-12 grid grid-cols-4 gap-5">

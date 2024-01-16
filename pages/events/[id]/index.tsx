@@ -1,11 +1,16 @@
-import { GetServerSideProps } from "next";
-import Image from "next/image";
+import EventDetails from "@/components/events/EventDetails";
+import { fetchEvent } from "@/pages/api/fetchEvent";
 
 type Event = {
   id: number;
   title: string;
   genre: string;
   image: string;
+  description: string;
+  host_details: string; //if we want to add host details
+  event_date: string;
+  event_time: string;
+  ticket_price: string;
 };
 
 type EventPageProps = {
@@ -14,29 +19,21 @@ type EventPageProps = {
 
 const EventPage = ({ event }: EventPageProps) => {
   return (
-    <div>
-      <h1>{event.title}</h1>
-      <p>{event.genre}</p>
-      <Image src={event.image} alt={event.title} width={500} height={300} />
-      <p>{event.genre}</p>
-    </div>
+    <EventDetails
+      title={event.title}
+      image={event.image}
+      genre={event.genre}
+      description={event.description}
+      host_details={event.host_details}
+      event_date={event.event_date}
+      event_time={event.event_time}
+      ticket_price={event.ticket_price}
+    />
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async context => {
-  if (!context.params) {
-    return {
-      notFound: true,
-    };
-  }
-  const { id } = context.params;
-  const res = await fetch(`http://localhost:3000/api/events/${id}`);
-  const event = await res.json();
-  return {
-    props: {
-      event,
-    },
-  };
+export const getServerSideProps = async (context: any) => {
+  return await fetchEvent(context);
 };
 
 export default EventPage;
