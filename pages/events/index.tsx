@@ -1,4 +1,4 @@
-import Event from "@/components/events/Event"; 
+import Event from "@/components/events/Event";
 
 const EventsPage = () => {
   const events = [
@@ -33,8 +33,8 @@ const EventsPage = () => {
       <div className="mt-20 p-8 flex items-center flex-col">
         <h1 className="text-white">All Events</h1>
         <div className="mt-12 grid grid-cols-4 gap-5">
-          {events.map((event) => (
-            <Event eventId={event.id} title={event.title} genre={event.genre} image={event.image}/>
+          {events.map(event => (
+            <Event eventId={event.id} title={event.title} genre={event.genre} image={event.image} key={event.id} />
           ))}
         </div>
       </div>
@@ -43,4 +43,3 @@ const EventsPage = () => {
 };
 
 export default EventsPage;
-

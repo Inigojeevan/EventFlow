@@ -23,7 +23,7 @@ const events = [
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id } = req.query;
-  const event = events.find((event) => event.id === Number(id));
+  const event = events.find(event => event.id === Number(id));
   if (!event) {
     return res.status(404).json({ message: "Event not found" });
   }

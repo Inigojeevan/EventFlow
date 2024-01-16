@@ -75,7 +75,7 @@ export function EventForm() {
                     <Input
                       id="ticket-price"
                       min={0}
-                      value={0}
+                      defaultValue={0}
                       ref={ticketPriceRef}
                       placeholder="Ticket Price"
                       required
@@ -87,7 +87,7 @@ export function EventForm() {
                     <Input
                       id="ticket-quantity"
                       min={1}
-                      value={1}
+                      defaultValue={1}
                       ref={ticketQuantityRef}
                       placeholder="Ticket Quantity"
                       required
@@ -151,7 +151,7 @@ export function EventForm() {
                     id="event-date"
                     required
                     type="date"
-                    value={new Date().toISOString().slice(0, 10)}
+                    defaultValue={new Date().toISOString().slice(0, 10)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -177,8 +177,8 @@ export function EventForm() {
                     </SelectTrigger>
                     <SelectContent position="popper">
                       {ticketTypes.map((ticketType, index) => (
-                        <div className="flex items-end">
-                          <SelectItem value={ticketType.ticketName} key={index}>
+                        <div className="flex items-end" key={index}>
+                          <SelectItem value={ticketType.ticketName}>
                             {ticketType.ticketName}
                           </SelectItem>
                           <Button
