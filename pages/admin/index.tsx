@@ -15,9 +15,7 @@ const AdminPage = () => {
                   Currently logged in as:
                   <span className="text-fuchsia-600"> {adminName}</span>
                 </p>
-                <p className="text-white text-xl mt-3 font-semibold">
-                  Manage different module sections
-                </p>
+                <p className="text-white text-xl mt-3 font-semibold">Manage different module sections</p>
               </div>
             </div>
           </div>

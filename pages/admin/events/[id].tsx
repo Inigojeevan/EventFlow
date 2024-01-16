@@ -13,4 +13,3 @@ const AdminEventPage = () => {
 };
 
 export default AdminEventPage;
-
