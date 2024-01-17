@@ -2,7 +2,7 @@ import DashTable from "@/components/admin/DashTable";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import { useRouter } from "next/router";
 
-const AdminEventsPage = ({events}: {events: AdminEvent[]}) => {
+const AdminEventsPage = ({ events }: { events: AdminEvent[] }) => {
   const { push } = useRouter();
 
   const handleRoute = (id: number) => {
@@ -16,10 +16,20 @@ const AdminEventsPage = ({events}: {events: AdminEvent[]}) => {
 
   const handleDeleteClick = (rowData: string) => {
     console.log("Delete clicked for row:", rowData);
-    console.log(events)
+    console.log(events);
   };
 
-  const columns = ["Id", "Title","Genre", "Host", "Event_Date", "Event_Time", "Ticket_Price","Tickets_Sold", "Attendees"];
+  const columns = [
+    "Id",
+    "Title",
+    "Genre",
+    "Host",
+    "Event_Date",
+    "Event_Time",
+    "Ticket_Price",
+    "Tickets_Sold",
+    "Attendees",
+  ];
 
   return (
     <div className="flex justify-center">
@@ -43,21 +53,21 @@ const AdminEventsPage = ({events}: {events: AdminEvent[]}) => {
   );
 };
 
-export const getServerSideProps = async(context: any) => {
-  if(!context){
+export const getServerSideProps = async (context: any) => {
+  if (!context) {
     return {
-      notFound: true
-    }
+      notFound: true,
+    };
   }
 
-  const res = await fetch("http://localhost:3000/api/admin/events")
-  const events = await res.json()
+  const res = await fetch("http://localhost:3000/api/admin/events");
+  const events = await res.json();
 
   return {
     props: {
       events,
-    }
-  }
-}
+    },
+  };
+};
 
 export default AdminEventsPage;
