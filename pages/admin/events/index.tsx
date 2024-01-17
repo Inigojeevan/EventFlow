@@ -23,6 +23,7 @@ const AdminEventsPage = ({ events }: { events: AdminEvent[] }) => {
     "Id",
     "Title",
     "Genre",
+    "Description",
     "Host",
     "Event_Date",
     "Event_Time",

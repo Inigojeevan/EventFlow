@@ -1,11 +1,4 @@
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 interface DashTableProps {
   columns: string[];
@@ -23,15 +16,15 @@ const DashTable = (props: DashTableProps) => {
         <TableRow>
           {columns.map((column, index) => (
             <TableHead className="text-violet-400 text-xl" key={index}>
-              {column}
+              <div className="w-[12vw] text-center">{column}</div>
             </TableHead>
           ))}
           <TableHead className="text-violet-400 text-xl text-center">Functions</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-      {data.map((row, rowIndex) => (
-          <TableRow className="text-white text-xl" key={rowIndex}>
+        {data.map((row, rowIndex) => (
+          <TableRow className="text-white text-xl text-center" key={rowIndex}>
             {columns.map((column, colIndex) => (
               <TableCell key={colIndex}>{row[column]}</TableCell>
             ))}

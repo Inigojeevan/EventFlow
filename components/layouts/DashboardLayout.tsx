@@ -9,7 +9,7 @@ const DashboardLayout = (props: { children: ReactNode }) => {
   return (
     <div className="w-screen h-[90vh] flex flex-col">
       <div className="mt-3 p-5 flex flex-row">
-        <p className="text-white text-3xl font-semibold ml-16">Overview</p>
+        <p className="text-white text-3xl font-semibold ml-14">Overview</p>
         <p className="text-white text-2xl font-semibold ml-auto mr-10">{currentDate}</p>
       </div>
       <div className="flex flex-row pr-5">
