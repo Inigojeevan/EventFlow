@@ -5,15 +5,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { MinusIcon, PlusIcon } from "lucide-react";
-import { Card } from "./ui/card";
+import { Card } from "../ui/card";
 
 export function EventForm() {
-  type TicketType = {
-    ticketName: string;
-    ticketPrice: number;
-    ticketQuantity: number;
-    ticketPerks: string;
-  };
 
   const ticketNameRef = useRef<HTMLInputElement>(null);
   const ticketPriceRef = useRef<HTMLInputElement>(null);
@@ -121,7 +115,7 @@ export function EventForm() {
         <div className="flex flex-col">
           <div className="space-y-2 text-center">
             <h1 className="text-3xl font-bold">Host an Event</h1>
-            <p className="text-gray-500 dark:text-gray-400">Fill out the form below to host your event</p>
+            <p className="text-gray-400 dark:text-gray-400">Fill out the form below to host your event</p>
           </div>
           <div>
             <div className="space-y-4">
