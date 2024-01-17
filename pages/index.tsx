@@ -3,27 +3,26 @@ import styles from "../styles/home.module.css";
 import React, { useRef, useState } from "react";
 
 const HomePage = () => {
-
   const [contact, setContact] = useState({
     contactemail: "",
     message: "",
-  })
+  });
 
-  const emailRef = useRef<HTMLInputElement>(null)
-  const messageRef = useRef<HTMLTextAreaElement>(null)
+  const emailRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
 
-  if(emailRef.current){
+  if (emailRef.current) {
     emailRef.current.value = contact?.contactemail || "";
   }
 
-  if(messageRef.current){
+  if (messageRef.current) {
     messageRef.current.value = contact?.message || "";
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setContact({ ...contact, [name]: value });
-  }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,11 +59,29 @@ const HomePage = () => {
             Contact
           </p>
           <form onSubmit={handleSubmit} className="flex w-fit flex-col justify-center items-center mt-10 gap-5">
-            <label className="mr-auto" htmlFor="email">Email</label>
-            <input ref={emailRef} onChange={handleChange} type="email" name="contactemail" className="pl-5 bg-black bg-opacity-50 outline-none focus:shadow-fuchsia-600 border-2 shadow-md  w-60 h-10 rounded-xl" />
-            <label className="mr-auto" htmlFor="message">Message</label>
-            <textarea ref={messageRef} onChange={handleChange} name="message" className="pl-5 pt-2 bg-black bg-opacity-50 outline-none focus:shadow-fuchsia-600 border-2 shadow-md  w-60 rounded-xl" rows={4} />
-            <button type="submit" className="bg-white text-black font-semibold p-2 rounded-xl">Submit</button>
+            <label className="mr-auto" htmlFor="email">
+              Email
+            </label>
+            <input
+              ref={emailRef}
+              onChange={handleChange}
+              type="email"
+              name="contactemail"
+              className="pl-5 bg-black bg-opacity-50 outline-none focus:shadow-fuchsia-600 border-2 shadow-md  w-60 h-10 rounded-xl"
+            />
+            <label className="mr-auto" htmlFor="message">
+              Message
+            </label>
+            <textarea
+              ref={messageRef}
+              onChange={handleChange}
+              name="message"
+              className="pl-5 pt-2 bg-black bg-opacity-50 outline-none focus:shadow-fuchsia-600 border-2 shadow-md  w-60 rounded-xl"
+              rows={4}
+            />
+            <button type="submit" className="bg-white text-black font-semibold p-2 rounded-xl">
+              Submit
+            </button>
           </form>
         </div>
       </div>
