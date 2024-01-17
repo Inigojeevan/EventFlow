@@ -19,9 +19,10 @@ export const events: AdminEvent[] = [
     Title: "Event 2",
     Genre: "Technical",
     Image: "/images/technical.jpg",
-    Description: "This is a description detail",
+    Description: "This is a description",
     Host: "This is a host detail",
     Event_Date: "This is a event date", 
+
     Event_Time: "This is a event time",
     Ticket_Price: 60,
     Tickets_Sold: 100,
