@@ -1,5 +1,5 @@
 import EventDetails from "@/components/events/EventDetails";
-import { fetchEvent } from "@/pages/api/fetchEvent";
+import { fetchEvent } from "@/lib/helpers/fetchEvent";
 
 type Event = {
   id: number;
@@ -7,7 +7,7 @@ type Event = {
   genre: string;
   image: string;
   description: string;
-  host_details: string; //if we want to add host details
+  host_details: string;
   event_date: string;
   event_time: string;
   ticket_price: string;
