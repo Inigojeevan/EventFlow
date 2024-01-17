@@ -1,4 +1,3 @@
-// DashTable.tsx
 import {
   Table,
   TableBody,
@@ -31,7 +30,7 @@ const DashTable = (props: DashTableProps) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map((row, rowIndex) => (
+      {data.map((row, rowIndex) => (
           <TableRow className="text-white text-xl" key={rowIndex}>
             {columns.map((column, colIndex) => (
               <TableCell key={colIndex}>{row[column]}</TableCell>

@@ -12,11 +12,11 @@ const DashboardLayout = (props: { children: ReactNode }) => {
         <p className="text-white text-3xl font-semibold ml-16">Overview</p>
         <p className="text-white text-2xl font-semibold ml-auto mr-10">{currentDate}</p>
       </div>
-      <div className="flex flex-row p-5">
-        <div>
+      <div className="flex flex-row pr-5">
+        <div className="pl-5 mr-5">
           <DashNav />
         </div>
-        <div className="ml-auto bg-white rounded-xl w-[80vw] h-[65vh]">
+        <div className="ml-auto rounded-xl w-[80vw] h-[64vh] pr-9">
           {props.children}
         </div>
       </div>

@@ -7,7 +7,7 @@ const AdminPage = () => {
     <div className="flex justify-center">
       <div className="mt-20 flex items-center">
         <DashboardLayout>
-          <div className="flex justify-center w-full h-full bg-black opacity-55 rounded-xl border-violet-700 border-4 shadow-md shadow-violet-500">
+          <div className="flex justify-center w-full h-full bg-black bg-opacity-55 rounded-xl border-violet-700 border-4 shadow-md shadow-violet-500">
             <div className="flex justify-center items-center flex-col gap-3">
               <p className="text-white text-3xl font-bold mb-10">Admin</p>
               <div className="mb-10">

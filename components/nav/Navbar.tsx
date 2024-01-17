@@ -28,9 +28,9 @@ const Navbar = () => {
       </div>
       <div>
         {session ? (
-            <button onClick={handleSignOut} className="bg-red-500 text-white font-bold text-base rounded-xl w-20 h-10 mr-6">Sign out</button>
+            <button onClick={handleSignOut} className="bg-red-500 text-white font-bold text-base rounded-xl w-20 h-10 mr-10">Sign out</button>
         ): (
-            <button onClick={handleRoute} className="bg-green-500 text-white font-bold text-base rounded-xl w-20 h-10 mr-6">Sign in</button>
+            <button onClick={handleRoute} className="bg-green-500 text-white font-bold text-base rounded-xl w-20 h-10 mr-10">Sign in</button>
         )}
         
       </div>

@@ -1,4 +1,4 @@
-import { EventForm } from "@/components/form";
+import { EventForm } from "@/components/hosts/form";
 
 const CreateEventPage = () => {
   return <EventForm />;

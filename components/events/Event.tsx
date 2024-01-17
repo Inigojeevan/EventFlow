@@ -10,12 +10,11 @@ const Event = (props: {eventId: number, title: string, image: string, genre: str
     }
 
     return(
-      // create and add way to navigate to [eventName]
-        <div className="bg-black bg-opacity-40 flex flex-col justify-start items-center gap-4 w-72 h-full p-5 rounded-xl shadow-md shadow-fuchsia-600 border-fuchsia-700 border-4">
-                <p className="text-xl text-violet-500">
-                  Title: <span className="text-fuchsia-600">{props.title}</span>
+        <div className="bg-black bg-opacity-30 flex flex-col justify-start items-center gap-4 w-72 h-full p-5 rounded-xl shadow-md shadow-fuchsia-600 border-fuchsia-700 border-4">
+                <p className="text-xl text-fuchsia-400">
+                  Title: <span className="text-white">{props.title}</span>
                 </p>
-                <p className="text-violet-500 text-base">Genre: <span className="text-fuchsia-600">{props.genre}</span></p>
+                <p className="text-fuchsia-400 text-base">Genre: <span className="text-white ">{props.genre}</span></p>
                 <Image
                   src={props.image}
                   alt={props.title}
