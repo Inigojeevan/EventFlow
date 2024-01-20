@@ -1,8 +1,20 @@
 import Link from "next/link";
 import styles from "../styles/home.module.css";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useSession } from "next-auth/react";
 
 const HomePage = () => {
+
+  const {data: session} = useSession()
+
+  useEffect(()=>{
+    if(session){
+      console.log(session?.user)
+    } else {
+      console.log('No USER')
+    }
+  }, [session])
+
   const [contact, setContact] = useState({
     contactemail: "",
     message: "",
@@ -36,7 +48,7 @@ const HomePage = () => {
           <h1 className="text-white decoration-white underline h-fit text-2xl md:text-4xl lg:text-5xl xl:text-6xl duration-200 ease-in-out hover:text-violet-300">
             EventFlow
           </h1>
-          <p className="p-3 text-white text-sm md:text-lg lg:text-2xl xl:text-2xl font-semibold">
+          <p className="p-3 text-white text-sm md:text-lg lg:text-3xl xl:text-4xl font-semibold">
             Welcome to <span className="text-fuchsia-400">EventFlow</span>, where every event finds its ideal stage!
             Dive into a world of unforgettable moments as you explore a diverse range of top-notch venues tailored to
             your unique style and occasion. Our platform connects you with a network of expert vendors, ensuring every
@@ -46,7 +58,7 @@ const HomePage = () => {
           <div className="flex flex-col md:flex-row justify-center md:justify-between gap-3 w-full md:w-full">
             <Link
               href="events"
-              className="bg-violet-950 w-full md:w-full h-10 md:h-12 rounded-xl flex justify-center items-center text-base md:text-lg font-bold duration-150 ease-in-out hover:shadow-fuchsia-500 shadow-md border-2 hover:text-fuchsia-500 hover:border-fuchsia-600"
+              className="bg-violet-950 w-full md:w-full h-10 md:h-12 rounded-xl flex justify-center items-center font-bold duration-150 ease-in-out text-base md:text-xl lg:text-2xl xl:text-3xl hover:shadow-fuchsia-500 shadow-md border-2 hover:text-fuchsia-500 hover:border-fuchsia-600"
             >
               Go To Events
             </Link>
@@ -67,7 +79,7 @@ const HomePage = () => {
               onChange={handleChange}
               type="email"
               name="contactemail"
-              className="pl-5 bg-black bg-opacity-50 outline-none focus:shadow-fuchsia-600 border-2 shadow-md  w-60 h-10 rounded-xl"
+              className="pl-5 bg-black bg-opacity-50 outline-none focus:shadow-fuchsia-600 border-2 shadow-md w-32 md:w-60 h-10 rounded-xl"
             />
             <label className="mr-auto" htmlFor="message">
               Message
@@ -76,7 +88,7 @@ const HomePage = () => {
               ref={messageRef}
               onChange={handleChange}
               name="message"
-              className="pl-5 pt-2 bg-black bg-opacity-50 outline-none focus:shadow-fuchsia-600 border-2 shadow-md  w-60 rounded-xl"
+              className="pl-5 pt-2 bg-black bg-opacity-50 outline-none focus:shadow-fuchsia-600 border-2 shadow-md w-32 md:w-60 rounded-xl"
               rows={4}
             />
             <button type="submit" className="bg-white text-black font-semibold p-2 rounded-xl">
