@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NavMenu from "./NavMenu";
 import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
 
@@ -10,11 +11,11 @@ const Navbar = () => {
         push("/login");
     }
 
-    const handleSignOut = () => {
-        console.log("Sign out user")
+    const handleProfile = () => {
+        push("/profile")
     }
 
-    const session = false;
+    const {data: session} = useSession()
 
   return (
     <div className="shadow-md shadow-fuchsia-600 fixed w-screen h-20 bg-indigo-950 flex flex-row items-center justify-between">
@@ -28,7 +29,7 @@ const Navbar = () => {
       </div>
       <div>
         {session ? (
-            <button onClick={handleSignOut} className="bg-red-500 text-white font-bold text-base rounded-xl w-20 h-10 mr-10">Sign out</button>
+            <button onClick={handleProfile} className="bg-red-500 text-white font-bold text-base rounded-xl w-20 h-10 mr-10">Profile</button>
         ): (
             <button onClick={handleRoute} className="bg-green-500 text-white font-bold text-base rounded-xl w-20 h-10 mr-10">Sign in</button>
         )}
