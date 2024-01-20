@@ -5,7 +5,6 @@ import GoogleLogo from "@/public/images/google.svg";
 import Image from "next/image";
 
 const LoginPage = () => {
-
   const { data: session } = useSession();
   const router = useRouter();
 

@@ -4,16 +4,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 
 const HomePage = () => {
+  const { data: session } = useSession();
 
-  const {data: session} = useSession()
-
-  useEffect(()=>{
-    if(session){
-      console.log(session?.user)
+  useEffect(() => {
+    if (session) {
+      console.log(session?.user);
     } else {
-      console.log('No USER')
+      console.log("No USER");
     }
-  }, [session])
+  }, [session]);
 
   const [contact, setContact] = useState({
     contactemail: "",

@@ -21,7 +21,7 @@ const ProfilePage = () => {
   return (
     <div className="w-[100vw] h-[100vh] flex justify-center items-center">
       <div className="mt-20 w-2/3 h-2/3 border-4 border-fuchsia-900 shadow-md shadow-fuchsia-500 bg-violet-900 rounded-2xl flex justify-center">
-      <Profile userName={userName} userEmail={userEmail} userImage={userImage} />
+        <Profile userName={userName} userEmail={userEmail} userImage={userImage} />
       </div>
     </div>
   );
