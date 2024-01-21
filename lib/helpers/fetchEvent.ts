@@ -1,9 +1,9 @@
 import { GetServerSidePropsContext } from "next";
-
 export async function fetchEvent(context: GetServerSidePropsContext) {
   if (!context.params) {
     return {
       notFound: true,
+      context: null,
     };
   }
 
