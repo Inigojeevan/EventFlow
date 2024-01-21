@@ -1,7 +1,7 @@
-import { EventForm } from "@/components/hosts/form";
+import HostEventForm from "@/components/hosts/HostEventForm";
 
 const CreateEventPage = () => {
-  return <EventForm />;
+  return <HostEventForm />;
 };
 
 export default CreateEventPage;
