@@ -1,23 +1,11 @@
 import { fetchEvent } from "@/lib/helpers/fetchEvent";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { useState, useEffect } from "react";
 
-const EventRegistrationForm = ({ id }) => {
-  const [event, setEvent] = useState();
-  useEffect(() => {
-    const getEvent = async () => {
-      if (id) {
-        const eventData = await fetchEvent({ params: { id } });
-        if (!eventData.notFound) {
-          setEvent(eventData.props.event);
-        }
-      }
-    };
-    getEvent();
-  }, [id]);
-
+const EventRegistrationForm = ({ event }: { event: EventType }) => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
-      <form className="bg-black bg-opacity-55 p-8 rounded w-1/2 rounded-xl shadow-md shadow-fuchsia-600 border-fuchsia-700">
+      <form className="bg-black bg-opacity-55 p-8 w-1/2 rounded-xl shadow-md shadow-fuchsia-600 border-fuchsia-700">
         <div className="mb-4">
           <label className="block mb-2 text-white text-lg">Event Name:</label>
           {event && (
