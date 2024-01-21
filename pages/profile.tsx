@@ -17,6 +17,11 @@ const ProfilePage = () => {
   const userEmail = session?.user?.email || "";
   const userImage = session?.user?.image;
 
+  const handleSignOut = () => {
+    signOut();
+    router.replace("/login");
+  }
+
   return (
     <div className="w-[100vw] h-[100vh] flex bg-black justify-center items-center">
       <div className="mt-20 flex-row w-2/3 h-2/3 border-4 border-fuchsia-900 shadow-md shadow-fuchsia-500 bg-violet-900 rounded-2xl flex justify-center">
@@ -25,7 +30,7 @@ const ProfilePage = () => {
           userName={userName}
           userImage={userImage}
           goHome={() => router.replace("/")}
-          signOut={() => signOut()}
+          signOut={() => handleSignOut()}
         />
       </div>
     </div>
