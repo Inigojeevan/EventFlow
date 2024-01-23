@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Profile = (props: { userName: string; userEmail: string; userImage: any, goHome: ()=>void, signOut: ()=>void }) => {
+const Profile = (props: { userName: any; userEmail: any; goHome: ()=>void, signOut: ()=>void }) => {
     return (
     <>
       <div className="w-1/3 mr-auto h-fit p-7">
@@ -19,16 +19,6 @@ const Profile = (props: { userName: string; userEmail: string; userImage: any, g
           <button onClick={props.goHome} className="bg-red-500 p-2 font-semibold text-xl rounded-xl duration-150 ease-in-out border-2 shadow-md hover:border-red-400 hover:shadow-red-500 hover:bg-red-700">Go Home</button>
           <button onClick={props.signOut} className="bg-red-500 p-2 font-semibold text-xl rounded-xl duration-150 ease-in-out border-2 shadow-md hover:border-red-400 hover:shadow-red-500 hover:bg-red-700">Sign out</button>
         </div>
-      </div>
-      <div className="w-1/5 h-fit p-7 flex justify-center">
-        <Image
-          width={70}
-          height={70}
-          src={props.userImage}
-          alt="User Avatar"
-          style={{ borderRadius: "50%" }}
-          className="shadow-lg shadow-white border-2 border-white"
-        />
       </div>
     </>
   );

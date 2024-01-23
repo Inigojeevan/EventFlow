@@ -1,7 +1,3 @@
-import { fetchEvent } from "@/lib/helpers/fetchEvent";
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
-import { useState, useEffect } from "react";
-
 const EventRegistrationForm = ({ event }: { event: EventType }) => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
