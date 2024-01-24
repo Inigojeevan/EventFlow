@@ -6,9 +6,9 @@ import { AuthProvider } from "@/components/layouts/AuthContext";
 export default function App({ Component, pageProps: { ...pageProps } }: AppProps) {
   return (
     <AuthProvider>
-      <PageLayout>
-        <Component {...pageProps} />
-      </PageLayout>
+        <PageLayout>
+          <Component {...pageProps} />
+        </PageLayout>
     </AuthProvider>
   );
 }
