@@ -1,14 +1,14 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import PageLayout from "@/components/layouts/PageLayout";
-import { SessionProvider } from "next-auth/react";
+import { AuthProvider } from "@/components/layouts/AuthContext";
 
-export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+export default function App({ Component, pageProps: { ...pageProps } }: AppProps) {
   return (
-    <SessionProvider session={session}>
-      <PageLayout>
-        <Component {...pageProps} />
-      </PageLayout>
-    </SessionProvider>
+    <AuthProvider>
+        <PageLayout>
+          <Component {...pageProps} />
+        </PageLayout>
+    </AuthProvider>
   );
 }
